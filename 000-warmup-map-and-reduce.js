@@ -12,3 +12,12 @@ let dataFromServer = {
 
 let fetchFromServer = Promise.resolve(dataFromServer);
 
+fetchFromServer.then(data => data.posts)
+  .then(posts => posts.map(p => p.likes))
+  .then(likes => likes.reduce((acc, x) => acc + x))
+  .then(console.log);
+
+
+
+
+
